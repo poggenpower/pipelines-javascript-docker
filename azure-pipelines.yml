@@ -10,6 +10,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'pipelines-javascript-docker'
 
 stages:
 - stage: Build
@@ -23,7 +24,17 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
+        repository: 
         command: build
         dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
+    - task: aquasecScanner@4
+      inputs:
+        image: '$(imageName)'
+        scanType: 'local'
+        register: false
+        hideBase: false
+        showNegligible: false
+        windowsScannerVersion: '4.2.0'
+        connection: 'AquaScanner'
