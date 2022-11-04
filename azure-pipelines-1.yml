@@ -19,12 +19,15 @@ jobs:
     inputs:
       script: >-
         # add bash debugging output 
-        sed -i '/#\!\/bin\/bash.*/a set -x' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
+
+        #sed -i '/#\!\/bin\/bash.*/a set -x' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
         
         #show dockerTask.script
+        
         #cat /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
 
         # Test docker 
+        
         #docker pull registry.aquasec.com/scanner:2022.4
 
   - task: aquasecScanner@4
