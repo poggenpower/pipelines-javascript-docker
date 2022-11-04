@@ -36,4 +36,6 @@ jobs:
       connection: 6b6a979b-5732-4fa7-8d59-5c8aa768d9d4
       showWillNotFix: true
       registerCompliant: true
+      runOptions: '-e AQUA_TOKEN=b8cef481d2b26c02f3101c3796b469d01f5815e1'
+
 ...
