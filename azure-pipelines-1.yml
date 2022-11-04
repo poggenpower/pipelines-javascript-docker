@@ -23,9 +23,10 @@ jobs:
     displayName: Command Line Script
     inputs:
       script: >-
+        sed -i '/#\!\/bin\/bash.*/a set -x' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
         cat /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
 
-        sed -i 's/#\!\/bin\/bash.*/#\!\/bin\/bash -ex/' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
+        #sed -i 's/#\!\/bin\/bash.*/#\!\/bin\/bash -ex/' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
   - task: aquasecScanner@4
     displayName: Image Scanning
     inputs:
