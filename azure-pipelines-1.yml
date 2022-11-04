@@ -10,12 +10,12 @@ jobs:
     clean: true
     fetchTags: false
   - task: Docker@2
-    displayName: Login to ACR
+    displayName: Login to Schmu.net
     inputs:
       command: login
       containerRegistry: thl-registry
   - task: Docker@2
-    displayName: Login to Docker Hub
+    displayName: Login to Aqua Registry
     inputs:
       command: login
       containerRegistry: Aqua-Registry
@@ -25,7 +25,9 @@ jobs:
       script: >-
         sed -i '/#\!\/bin\/bash.*/a set -x' /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
         
-        cat /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
+        #cat /home/vsts/work/_tasks/aquasecScanner_53872c9a-a53f-4fcf-973d-8ded3d75432c/4.1.19/dockerTask.sh
+
+        docker pull registry.aquasec.com/scanner:2022.4
 
   - task: aquasecScanner@4
     displayName: Image Scanning
